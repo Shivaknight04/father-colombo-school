@@ -1,11 +1,17 @@
-# Father Colombo School - EM — Website Version 5
+# Father Colombo School - EM — Website Version 6
 
-Version 5 integrates the user's supplied Mandatory Public Disclosure HTML into the main Father Colombo School website shell.
+Clean URL version for GitHub Pages.
 
-- Same school header and navigation
-- Same footer
-- MPD highlighted as the active menu item
-- User-supplied MPD tables/content retained
-- MPD content is displayed inside the site's visual layout
-- Responsive table scrolling on small screens
-- No unrelated school information intentionally added
+Examples:
+- /about/
+- /academics/
+- /admissions/
+- /activities/
+- /facilities/
+- /gallery/
+- /notices/
+- /mandatory-public-disclosure/
+- /contact/
+
+The homepage remains at /.
+All internal HTML links were updated to the clean directory URLs.
