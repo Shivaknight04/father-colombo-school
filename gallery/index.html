@@ -29,6 +29,10 @@
 .g-card.wide{grid-column:span 8}
 .g-card img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .5s;background:#f4f7f9}
 .g-card[data-category="school"] img{object-fit:contain;padding:8px;background:#f4f7f9}
+.g-card.portrait{aspect-ratio:3/4}
+.g-card.portrait img{object-fit:contain;padding:0;background:#f4f7f9;transform:none}
+.g-card.portrait:hover img{transform:none}
+.g-card.portrait:after{inset:52% 0 0;background:linear-gradient(transparent,#061b2dc0)}
 .g-card:hover img{transform:scale(1.045)}
 .g-card:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#061b2dce)}
 .g-info{position:absolute;z-index:2;left:16px;right:16px;bottom:14px;color:#fff}
@@ -113,11 +117,10 @@ body.lb-lock{overflow:hidden}
       <button class="g-card" data-category="people" data-title="School Staff" data-file="school-staff.jpeg" type="button">
         <img src="school-staff.jpeg" alt="Father Colombo School staff" loading="lazy"><span class="g-info"><small>People</small><strong>School Staff</strong></span>
       </button>
-      <button class="g-card" data-category="people" data-title="School President" data-file="president-most-rev-d-vijaya-paul.jpeg" type="button">
+      <button class="g-card portrait" data-category="people" data-title="School President" data-file="president-most-rev-d-vijaya-paul.jpeg" type="button">
         <img src="president-most-rev-d-vijaya-paul.jpeg"
      alt="School President"
-     loading="lazy"
-     style="object-fit:contain;padding:8px;background:#f4f7f9;"><span class="g-info"><small>Leadership</small><strong>School President</strong></span>
+     loading="lazy"><span class="g-info"><small>Leadership</small><strong>School President</strong></span>
       </button>
       <button class="g-card" data-category="school" data-title="Motto, Vision & Mission" data-file="motto-vision-mission.jpeg" type="button">
         <img src="motto-vision-mission.jpeg" alt="School motto, vision and mission" loading="lazy"><span class="g-info"><small>School Information</small><strong>Motto, Vision & Mission</strong></span>
