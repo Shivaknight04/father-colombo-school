@@ -177,39 +177,358 @@ body.lb-lock{overflow:hidden}
 <script src="../script.js"></script>
 <script>
 (function(){
-  const cards=[...document.querySelectorAll('.g-card')];
-  const filters=[...document.querySelectorAll('.filter')];
-  const count=document.getElementById('visibleCount');
-  const empty=document.getElementById('emptyState');
-  const lb=document.getElementById('lightbox'), img=document.getElementById('lbImage'), title=document.getElementById('lbTitle'), cat=document.getElementById('lbCategory');
-  let current=0, visible=[];
-  function applyFilter(f){
-    visible=cards.filter(c=>f==='all'||c.dataset.category===f);
-    cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.category===f));
-    count.textContent=visible.length;
-    empty.style.display=visible.length?'none':'block';
+
+  const API_URL =
+    'https://script.google.com/macros/s/AKfycbxKH07f_QX9QxnM4dR675GfQYnqpwXEsPBfzib1kDBbGxjJt_ldNixvNftPBaElSH9R/exec';
+
+  const grid = document.getElementById('galleryGrid');
+  const filters = [...document.querySelectorAll('.filter')];
+  const count = document.getElementById('visibleCount');
+  const empty = document.getElementById('emptyState');
+
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lbImage');
+  const title = document.getElementById('lbTitle');
+  const cat = document.getElementById('lbCategory');
+
+  let cards = [];
+  let visible = [];
+  let current = 0;
+
+
+  /* Convert Google Drive URL into an image URL */
+  function driveImageUrl(url) {
+
+    if (!url) return '';
+
+    let id = '';
+
+    const match1 = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+
+    const match2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+    if (match1) {
+      id = match1[1];
+    } else if (match2) {
+      id = match2[1];
+    }
+
+    if (!id) return url;
+
+    return 'https://drive.google.com/uc?export=view&id=' + id;
   }
-  function show(i){
-    if(!visible.length)return;
-    current=(i+visible.length)%visible.length;
-    const c=visible[current];
-    img.src=c.dataset.file; img.alt=c.dataset.title; title.textContent=c.dataset.title;
-    cat.textContent=c.querySelector('small')?.textContent||'Father Colombo School';
-    lb.classList.add('open'); document.body.classList.add('lb-lock');
+
+
+  /* Convert Admin category into Gallery filter category */
+  function galleryCategory(category) {
+
+    const c = String(category || '').toLowerCase();
+
+    if (c === 'staff') return 'people';
+
+    if (
+      c === 'events' ||
+      c === 'activities' ||
+      c === 'celebrations' ||
+      c === 'students'
+    ) {
+      return 'activities';
+    }
+
+    if (c === 'facilities') return 'campus';
+
+    if (c === 'school') return 'school';
+
+    return 'activities';
   }
-  cards.forEach(c=>c.addEventListener('click',()=>show(visible.indexOf(c))));
-  filters.forEach(b=>b.addEventListener('click',()=>{filters.forEach(x=>x.classList.remove('active'));b.classList.add('active');applyFilter(b.dataset.filter)}));
-  document.getElementById('lbClose').onclick=()=>{lb.classList.remove('open');document.body.classList.remove('lb-lock');img.src=''};
-  document.getElementById('lbPrev').onclick=()=>show(current-1);
-  document.getElementById('lbNext').onclick=()=>show(current+1);
-  lb.addEventListener('click',e=>{if(e.target===lb)document.getElementById('lbClose').click()});
-  document.addEventListener('keydown',e=>{
-    if(!lb.classList.contains('open'))return;
-    if(e.key==='Escape')document.getElementById('lbClose').click();
-    if(e.key==='ArrowLeft')show(current-1);
-    if(e.key==='ArrowRight')show(current+1);
+
+
+  /* Create a Gallery card */
+  function createCard(item) {
+
+    const card = document.createElement('button');
+
+    card.className = 'g-card dynamic-card';
+
+    card.type = 'button';
+
+    const category = galleryCategory(item.category);
+
+    card.dataset.category = category;
+
+    card.dataset.title =
+      item.title || 'Father Colombo School';
+
+    card.dataset.file =
+      driveImageUrl(item.fileUrl);
+
+    const image = document.createElement('img');
+
+    image.src = driveImageUrl(item.fileUrl);
+
+    image.alt =
+      item.title || 'Father Colombo School';
+
+    image.loading = 'lazy';
+
+    const info = document.createElement('span');
+
+    info.className = 'g-info';
+
+    const small = document.createElement('small');
+
+    small.textContent =
+      item.category || 'School';
+
+    const strong = document.createElement('strong');
+
+    strong.textContent =
+      item.title || 'School Activity';
+
+    info.appendChild(small);
+
+    info.appendChild(strong);
+
+    card.appendChild(image);
+
+    card.appendChild(info);
+
+    return card;
+  }
+
+
+  /* Load content from Google Sheet */
+  async function loadDynamicGallery() {
+
+    try {
+
+      const response =
+        await fetch(API_URL + '?t=' + Date.now());
+
+      if (!response.ok) {
+        throw new Error('Unable to load gallery data.');
+      }
+
+      const data = await response.json();
+
+      const galleryItems =
+        data.filter(item =>
+          String(item.type).toLowerCase() === 'gallery'
+        );
+
+      galleryItems.forEach(item => {
+
+        const card = createCard(item);
+
+        grid.appendChild(card);
+
+      });
+
+      initializeGallery();
+
+    } catch (error) {
+
+      console.error(
+        'Dynamic gallery error:',
+        error
+      );
+
+      initializeGallery();
+
+    }
+
+  }
+
+
+  /* Initialize filters and lightbox */
+  function initializeGallery() {
+
+    cards =
+      [...document.querySelectorAll('.g-card')];
+
+    applyFilter('all');
+
+    cards.forEach(card => {
+
+      card.onclick = function() {
+
+        show(
+          visible.indexOf(card)
+        );
+
+      };
+
+    });
+
+  }
+
+
+  function applyFilter(filter) {
+
+    visible =
+      cards.filter(card =>
+        filter === 'all' ||
+        card.dataset.category === filter
+      );
+
+    cards.forEach(card => {
+
+      card.hidden =
+        !(filter === 'all' ||
+          card.dataset.category === filter);
+
+    });
+
+    count.textContent =
+      visible.length;
+
+    empty.style.display =
+      visible.length ? 'none' : 'block';
+
+  }
+
+
+  function show(index) {
+
+    if (!visible.length) return;
+
+    current =
+      (index + visible.length) %
+      visible.length;
+
+    const card =
+      visible[current];
+
+    img.src =
+      card.dataset.file;
+
+    img.alt =
+      card.dataset.title;
+
+    title.textContent =
+      card.dataset.title;
+
+    const small =
+      card.querySelector('small');
+
+    cat.textContent =
+      small
+        ? small.textContent
+        : 'Father Colombo School';
+
+    lb.classList.add('open');
+
+    document.body.classList.add('lb-lock');
+
+  }
+
+
+  filters.forEach(button => {
+
+    button.addEventListener(
+      'click',
+      function() {
+
+        filters.forEach(
+          item =>
+            item.classList.remove('active')
+        );
+
+        button.classList.add('active');
+
+        applyFilter(
+          button.dataset.filter
+        );
+
+      }
+    );
+
   });
-  applyFilter('all');
+
+
+  document.getElementById(
+    'lbClose'
+  ).onclick = function() {
+
+    lb.classList.remove('open');
+
+    document.body.classList.remove(
+      'lb-lock'
+    );
+
+    img.src = '';
+
+  };
+
+
+  document.getElementById(
+    'lbPrev'
+  ).onclick = function() {
+
+    show(current - 1);
+
+  };
+
+
+  document.getElementById(
+    'lbNext'
+  ).onclick = function() {
+
+    show(current + 1);
+
+  };
+
+
+  lb.addEventListener(
+    'click',
+    function(event) {
+
+      if (event.target === lb) {
+
+        document.getElementById(
+          'lbClose'
+        ).click();
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    'keydown',
+    function(event) {
+
+      if (!lb.classList.contains('open'))
+        return;
+
+      if (event.key === 'Escape') {
+
+        document.getElementById(
+          'lbClose'
+        ).click();
+
+      }
+
+      if (event.key === 'ArrowLeft') {
+
+        show(current - 1);
+
+      }
+
+      if (event.key === 'ArrowRight') {
+
+        show(current + 1);
+
+      }
+
+    }
+  );
+
+
+  /* Start */
+  loadDynamicGallery();
+
 })();
 </script>
 </body>
