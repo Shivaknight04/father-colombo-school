@@ -1,388 +1,442 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Mandatory Public Disclosure - Father Colombo School - EM">
-<title>Mandatory Public Disclosure | Father Colombo School - EM</title>
-<link rel="stylesheet" href="../style.css">
-<style>
-/* MPD content is kept visually inside the main school website. */
-.mpd-wrap{padding:55px 0 85px;background:#f6f8fa}
-.mpd-inner{background:#fff;border:1px solid #dfe7ec;border-radius:14px;box-shadow:0 12px 35px #082b4912;overflow:hidden}
-.mpd-original{padding:25px}
-.mpd-original h1,.mpd-original h2,.mpd-original h3{color:#082b49}
-.mpd-original h1{font-size:34px;margin:8px 0 25px}
-.mpd-original h2{font-size:22px;margin-top:30px}
-.mpd-original table{width:100%;border-collapse:collapse;margin-bottom:25px;font-size:13px}
-.mpd-original th,.mpd-original td{border:1px solid #d9e1e6;padding:9px;text-align:left;vertical-align:top}
-.mpd-original th{background:#eef4f7;color:#082b49}
-.mpd-original .document-link{color:#0f6f9d;text-decoration:underline;font-weight:700}
-@media(max-width:700px){.mpd-original{padding:12px;overflow-x:auto}.mpd-original table{min-width:700px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mandatory Public Disclosure | Father Colombo C.B.S.E. School</title>
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .mpd-hero {
+      padding: 75px 20px 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #073763, #0b5e8e);
+      color: #ffffff;
+    }
+
+    .mpd-hero h1 {
+      margin: 0 0 12px;
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    .mpd-hero p {
+      margin: 0;
+      font-size: 17px;
+      opacity: 0.95;
+    }
+
+    .mpd-container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .mpd-intro {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .mpd-intro h2 {
+      margin-bottom: 12px;
+      color: #073763;
+      font-size: 28px;
+    }
+
+    .mpd-intro p {
+      max-width: 800px;
+      margin: auto;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .mpd-table-wrap {
+      overflow-x: auto;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .mpd-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+
+    .mpd-table th {
+      background: #073763;
+      color: #ffffff;
+      padding: 17px 16px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    .mpd-table td {
+      padding: 17px 16px;
+      border-bottom: 1px solid #e7e7e7;
+      color: #333333;
+      vertical-align: middle;
+    }
+
+    .mpd-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .mpd-table tbody tr:hover {
+      background: #f6fbff;
+    }
+
+    .mpd-number {
+      width: 70px;
+      text-align: center;
+      font-weight: 700;
+      color: #073763;
+    }
+
+    .mpd-document {
+      font-weight: 600;
+    }
+
+    .mpd-button {
+      display: inline-block;
+      padding: 9px 18px;
+      background: #073763;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .mpd-button:hover {
+      background: #0b5e8e;
+      transform: translateY(-1px);
+    }
+
+    .mpd-note {
+      margin-top: 30px;
+      padding: 18px 20px;
+      background: #f4f8fb;
+      border-left: 4px solid #073763;
+      border-radius: 8px;
+      color: #555555;
+      line-height: 1.7;
+    }
+
+    .mpd-note strong {
+      color: #073763;
+    }
+
+    @media (max-width: 600px) {
+
+      .mpd-hero {
+        padding: 55px 15px 45px;
+      }
+
+      .mpd-hero h1 {
+        font-size: 29px;
+      }
+
+      .mpd-hero p {
+        font-size: 15px;
+      }
+
+      .mpd-container {
+        margin: 30px auto;
+        padding: 0 12px;
+      }
+
+      .mpd-intro h2 {
+        font-size: 24px;
+      }
+
+      .mpd-table {
+        min-width: 650px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="header">
-<div class="container nav">
-<a class="brand" href="../">
-<div class="logo"><img src="../gallery/school-logo.jpeg" alt="Father Colombo School Logo" style="width:100%;height:100%;object-fit:contain;border-radius:inherit;"></div>
-<div><b>FATHER COLOMBO SCHOOL</b><small>ENGLISH MEDIUM • CBSE CURRICULUM</small></div>
-</a>
-<button class="menu" aria-label="Open menu">☰</button>
 
-<nav>
-<a href="../">Home</a>
-<a href="../about/">About</a>
-<a href="../academics/">Academics</a>
-<a href="../admissions/">Admissions</a>
-<a href="../activities/">Activities</a>
-<a href="../facilities/">Facilities</a>
-<a href="../gallery/">Gallery</a>
-<a href="../notices/">Notices</a>
-<a href="./" class="active">Mandatory Public Disclosure</a>
-<a href="../contact/">Contact</a>
-</nav>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <a href="../">Home</a>
+      <a href="../about/">About</a>
+      <a href="../academics/">Academics</a>
+      <a href="../admissions/">Admissions</a>
+      <a href="../activities/">Activities</a>
+      <a href="../facilities/">Facilities</a>
+      <a href="../gallery/">Gallery</a>
+      <a href="../notices/">Notices</a>
+      <a href="./" class="active">Mandatory Public Disclosure</a>
+      <a href="../contact/">Contact</a>
+    </nav>
+  </header>
 
-</div>
-</header>
 
-<section class="page">
-<div class="container">
-<p class="eyebrow">CBSE PUBLIC INFORMATION</p>
-<h1>Mandatory Public Disclosure</h1>
-<p>Father Colombo School - EM</p>
-</div>
-</section>
+  <!-- HERO -->
+  <section class="mpd-hero">
+    <h1>Mandatory Public Disclosure</h1>
+    <p>Father Colombo C.B.S.E. School</p>
+  </section>
 
-<section class="mpd-wrap">
-<div class="container">
-<div class="mpd-inner">
-<div class="mpd-original">
-<h2>APPENDIX - IX</h2>    
-<h1>Mandatory Public Disclosure</h1>
 
-    <h2>General Information</h2>
-    <table>
+  <!-- MAIN CONTENT -->
+  <main class="mpd-container">
+
+    <div class="mpd-intro">
+      <h2>Mandatory Public Disclosure</h2>
+
+      <p>
+        In accordance with applicable CBSE requirements, the following
+        documents and information are made available for public access.
+      </p>
+    </div>
+
+
+    <div class="mpd-table-wrap">
+
+      <table class="mpd-table">
+
         <thead>
-            <tr>
-                <th>SL NO.</th>
-                <th>INFORMATION</th>
-                <th>DETAILS</th>
-            </tr>
+          <tr>
+            <th class="mpd-number">S.No.</th>
+            <th>Document / Information</th>
+            <th>View Document</th>
+          </tr>
         </thead>
+
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>NAME OF THE SCHOOL</td>
-                <td>FATHER COLOMBO SCHOOL</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>AFFILIATION NO. (IF APPLICABLE)</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>SCHOOL CODE (IF APPLICABLE)</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>COMPLETE ADDRESS WITH PIN CODE</td>
-                <td>H.No.10-91/3, Station Ghanpur, Jangaon-506144, Telangana</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>PRINCIPAL NAME</td>
-                <td>Rev.Fr.YETUKURI THOMAS KIRAN</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>PRINCIPAL QUALIFICATION</td>
-                <td>B.Com., B.Ed</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>SCHOOL EMAIL ID</td>
-                <td><a href="mailto:fathercolomboschool102@gmail.com">----</a></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>CONTACT DETAILS (LANDLINE/MOBILE)</td>
-                <td>+91 9618617916</td>
-            </tr>
+
+          <!-- 1 -->
+          <tr>
+            <td class="mpd-number">1</td>
+
+            <td class="mpd-document">
+              Academic Calender
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/academic%20calender.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 2 -->
+          <tr>
+            <td class="mpd-number">2</td>
+
+            <td class="mpd-document">
+              Fee Structure
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/fee%20structure.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 3 -->
+          <tr>
+            <td class="mpd-number">3</td>
+
+            <td class="mpd-document">
+              Building Certificate
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/building%20certificate.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 4 -->
+          <tr>
+            <td class="mpd-number">4</td>
+
+            <td class="mpd-document">
+              Fire Safety Certificate
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/fire%20safety.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 5 -->
+          <tr>
+            <td class="mpd-number">5</td>
+
+            <td class="mpd-document">
+              PTA
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/pta.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 6 -->
+          <tr>
+            <td class="mpd-number">6</td>
+
+            <td class="mpd-document">
+              Recognition Certificate
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/recognition%20certificate.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 7 -->
+          <tr>
+            <td class="mpd-number">7</td>
+
+            <td class="mpd-document">
+              Sanitary Certificate
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/sanitary%20certifiacte.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 8 -->
+          <tr>
+            <td class="mpd-number">8</td>
+
+            <td class="mpd-document">
+              SMC
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/smc.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 9 -->
+          <tr>
+            <td class="mpd-number">9</td>
+
+            <td class="mpd-document">
+              Society Registration
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/society%20registration.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
+
+          <!-- 10 -->
+          <tr>
+            <td class="mpd-number">10</td>
+
+            <td class="mpd-document">
+              Water Health Certificate
+            </td>
+
+            <td>
+              <a
+                class="mpd-button"
+                href="documents/water%20health%20certificate.pdf"
+                target="_blank"
+                rel="noopener">
+                📄 View PDF
+              </a>
+            </td>
+          </tr>
+
         </tbody>
-    </table>
 
-    <h2>Documents/Information</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>SL NO.</th>
-                <th>DOCUMENTS/INFORMATION</th>
-                <th>DOCUMENTS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>COPIES OF AFFILIATION/UPGRADATION LETTER AND RECENT EXTENSION OF AFFILIATION, IF ANY</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>COPIES OF SOCIETIES/TRUST/COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE, BY THE STATE GOVT./UT</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009, AND IT’S RENEWAL IF APPLICABLE</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>COPY OF THE DEO CERTIFICATE SUBMITTED BY THE SCHOOL FOR AFFILIATION/UPGRADATION/EXTENSION OF AFFILIATION OR SELF CERTIFICATION BY SCHOOL</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>COPIES OF VALID WATER, HEALTH AND SANITATION CERTIFICATES</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-<tr>
-                <td>9</td>
-                <td>MANDATORY PUBLIC DISCLOSURE</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <td>10</td>
-                <td>STAFF DETAILS</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                
-            <!-- Add more rows for other documents -->
-        </tbody>
-    </table>
+      </table>
 
-    <h2>Result and Academics</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>SL NO.</th>
-                <th>DOCUMENTS/INFORMATION</th>
-                <th>UPLOAD DOCUMENTS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Result and Academics rows -->
-            <tr>
-                <td>1</td>
-                <td>FEE STRUCTURE OF THE SCHOOL</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>ANNUAL ACADEMIC CALENDAR</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>LIST OF PARENTS TEACHERS ASSOCIATION (PTA) MEMBERS</td>
-                <td><a href=".pdf" class="document-link" target="_blank">LINK</a></td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>LAST THREE-YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABILITY</td>
-                <td>Not Applicable</td>
-            </tr>
-        </tbody>
-    </table>
+    </div>
 
-    <h2>Result Class: X</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>SL NO.</th>
-                <th>YEAR</th>
-                <th>NO. OF REGISTERED STUDENTS</th>
-                <th>NO. OF STUDENTS PASSED</th>
-                <th>PASS PERCENTAGE</th>
-                <th>REMARKS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>Not Applicable</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <h2>Result Class: XII</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>SL NO.</th>
-                <th>YEAR</th>
-                <th>NO. OF REGISTERED STUDENTS</th>
-                <th>NO. OF STUDENTS PASSED</th>
-                <th>PASS PERCENTAGE</th>
-                <th>REMARKS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>Not Applicable</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- NOTE -->
+    <div class="mpd-note">
+      <strong>Note:</strong>
+      The above documents are provided for public information and
+      disclosure in accordance with applicable CBSE requirements.
+    </div>
 
-    <h2>Staff (Teaching)</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>SL NO.</th>
-                <th>INFORMATION</th>
-                <th>DETAILS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>PRINCIPAL</td>
-                <td>-----</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>TOTAL NO. OF TEACHERS</td>
-                <td>25</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>o PGT</td>
-                <td>00</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>o TGT</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>o PRT</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>TEACHERS SECTION RATIO</td>
-                <td>1 : 1.5</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>DETAILS OF SPECIAL EDUCATOR</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>DETAILS OF COUNSELLOR AND WELLNESS TEACHER</td>
-                <td>-</td>
-            </tr>
-        </tbody>
-    </table>
+  </main>
 
-    <h2>School Infrastructure</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>SL NO.</th>
-                <th>INFORMATION</th>
-                <th>DETAILS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>TOTAL CAMPUS AREA OF THE SCHOOL (IN SQUARE METER)</td>
-                <td>- Sq.Mts</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>NO. AND SIZE OF THE CLASSROOMS (IN SQ. Mts)</td>
-                <td>- Sq.Mts</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>NO. AND SIZE OF LABORATORIES INCLUDING COMPUTER LABS (IN SQUARE METER)</td>
-                <td>- Sq.Mts</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>INTERNET FACILITY (Y/N)</td>
-                <td>Y</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>NO. OF GIRLS TOILETS</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>NO. OF BOYS TOILETS</td>
-                <td>-</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>LINK OF YOUTUBE VIDEO OF THE INSPECTION OF SCHOOL COVERING THE INFRASTRUCTURE OF THE SCHOOL</td>
-                <td><a href="-----" target="_blank">Video Link</a></td>
-            </tr>
-        </tbody>
-    </table>
 
-    <!-- Additional sections can be added here -->
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 Father Colombo C.B.S.E. School. All Rights Reserved.
+    </p>
+  </footer>
 
-    <p>Contact us for further details: <a href="mailto:-------">----</a></p>
-</div>
-</div>
-</div>
-</section>
 
-<footer class="footer">
-<div class="container grid">
-<div><h3>FATHER COLOMBO SCHOOL - EM</h3><p>Nursery to Grade-X • CBSE Curriculum<br>Established: 2024</p></div>
-<div><h3>Address</h3><p>H.No.10-91/3<br>Station Ghanpur<br>Jangaon-506144, Telangana</p></div>
-<div><h3>Contact</h3><p>Rev.Fr.YETUKURI THOMAS KIRAN<br>Mobile: 9618617916<br>fathercolomboschool102@gmail.com</p></div>
-</div>
-<div class="container copy">© 2026 Father Colombo School - EM</div>
-</footer>
-<script src="../script.js"></script>
 </body>
 </html>
